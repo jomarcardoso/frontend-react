@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from 'react'
 import './App.scss';
 import { Header, Board } from './components';
-import { PostContent } from './services/post/types';
+import { PostContent } from './services/post/post.types';
 import { getPosts, POST_CONTENT } from './services/post/post';
 
 const App: FC = () => {

@@ -6,11 +6,7 @@ $margin: 3px;
   display: flex;
   font-weight: bold;
 
-  &__list {
-    display: flex;
-  }
-
-  &__item {
+  &__button {
     border: 2px solid transparent;
     font-size: 15px;
     margin: 0 $margin;
@@ -22,6 +18,10 @@ $margin: 3px;
     &--selected {
       border-color: $color-gray-light;
       border-radius: $border-radius;
+    }
+
+    &:disabled {
+      opacity: 0.3;
     }
   }
 

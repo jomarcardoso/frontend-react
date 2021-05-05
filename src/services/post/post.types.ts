@@ -1,13 +1,7 @@
+import { Pagination } from '../pagination/pagination.types';
 export interface Post {
-  id: number;
   title: string;
   body: string;
-}
-
-export interface Pagination {
-  limit: number;
-  page: number;
-  pages: number;
 }
 
 export interface PostContentData {

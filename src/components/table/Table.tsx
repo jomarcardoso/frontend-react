@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import './Table.scss';
-import { PostContent, Post } from '../../services/post/types';
+import { Post } from '../../services/post/post.types';
 
 const Table: FC<{ posts: Array<Post> }> = ({ posts }) => {
   function renderItem(post: Post) {

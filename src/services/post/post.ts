@@ -1,28 +1,24 @@
-import { Post, PostContent, PostContentData } from './types';
+import { Post, PostContent, PostContentData } from './post.types';
+import { PAGINATION } from '../pagination/pagination';
 
 const TOKEN = process.env.REACT_APP_TOKEN;
 
 export const POST_CONTENT: PostContent = {
-  pagination: {
-    limit: 0,
-    page: 1,
-    pages: 3,
-  },
+  pagination: PAGINATION,
   posts: [],
 }
 
 function formatPost(data: Post): Post {
   return {
-    body: data.body,
-    id: data.id,
-    title: data.title,
+    body: data && data.body || '',
+    title: data && data.title || '',
   };
 }
 
 function format(data: PostContentData): PostContent {
   return {
-    pagination: data.meta.pagination,
-    posts: data.data.map(formatPost),
+    pagination: data && data.meta && data.meta.pagination || PAGINATION,
+    posts: data && Array.isArray(data.data) && data.data.map(formatPost) || [],
   };
 }
 
@@ -32,8 +28,6 @@ export async function getPosts(page = 1): Promise<{ data?: PostContent; error?: 
       await fetch(`https://gorest.co.in/public-api/posts?_format=json&access-token=${TOKEN}&page=${page}`);
 
     const data = await response.json() as PostContentData;
-
-    console.log(data);
 
     return { data: format(data) };
   } catch (error) {

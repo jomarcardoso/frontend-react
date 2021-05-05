@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import './Board.scss';
-import { PostContent } from '../../services/post/types';
+import { PostContent } from '../../services/post/post.types';
 import Table from '../table/Table';
 import PaginationControl from '../pagination-control/PaginationControl';
 
