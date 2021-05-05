@@ -2,4 +2,9 @@
   &__title {
     margin-bottom: 20px;
   }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;;
+  }
 }
