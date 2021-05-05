@@ -1,10 +1,13 @@
-import React, { FC } from 'react';
+import React, { Dispatch, FC, SetStateAction } from 'react';
 import './Board.scss';
 import { PostContent } from '../../services/post/post.types';
 import TablePosts from '../table-posts/TablePosts';
 import PaginationControl from '../pagination-control/PaginationControl';
 
-const Board: FC<{ postContent: PostContent, setPage(page: number): void }> = ({ postContent, setPage }) => {
+const Board: FC<{
+  postContent: PostContent;
+  setPage: Dispatch<SetStateAction<number>>;
+}> = ({ postContent, setPage }) => {
   return (
     <div className="board">
       <h2 className="board__title h2">Últimas postagens</h2>
@@ -17,7 +20,10 @@ const Board: FC<{ postContent: PostContent, setPage(page: number): void }> = ({ 
             Exibindo {postContent.posts.length} postagens
           </div>
           <div className="td">
-            <PaginationControl pagination={postContent.pagination} setPage={setPage} />
+            <PaginationControl
+              pagination={postContent.pagination}
+              setPage={setPage}
+            />
           </div>
         </div>
       </div>

@@ -10,15 +10,15 @@ export const POST_CONTENT: PostContent = {
 
 function formatPost(data: Post): Post {
   return {
-    body: data && data.body || '',
-    title: data && data.title || '',
+    body: (data && data.body) || '',
+    title: (data && data.title) || '',
   };
 }
 
 function format(data: PostContentData): PostContent {
   return {
-    pagination: data && data.meta && data.meta.pagination || PAGINATION,
-    posts: data && Array.isArray(data.data) && data.data.map(formatPost) || [],
+    pagination: (data && data.meta && data.meta.pagination) || PAGINATION,
+    posts: (data && Array.isArray(data.data) && data.data.map(formatPost)) || [],
   };
 }
 

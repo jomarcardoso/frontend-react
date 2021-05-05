@@ -1,16 +1,7 @@
 @import './scss/utilities';
 @import './scss/resets';
 @import './scss/fonts';
+
+// components
 @import './scss/components/table';
-
-.h2 {
-  color: $color-gray;
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.icon {
-  &--reverse {
-    transform: scaleX(-1);
-  }
-}
+@import './scss/components/icon';

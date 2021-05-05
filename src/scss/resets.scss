@@ -1,4 +1,5 @@
 @import '~reset-css/sass/reset';
+@import './utilities';
 
 *,
 *::after,
@@ -26,4 +27,10 @@ button {
   border: 0;
   background-color: transparent;
   cursor: pointer;
+}
+
+h2 {
+  color: $color-gray;
+  font-size: 18px;
+  font-weight: bold;
 }
