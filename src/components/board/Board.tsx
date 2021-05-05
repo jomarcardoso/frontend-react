@@ -8,13 +8,17 @@ const Board: FC<{ postContent: PostContent, setPage(page: number): void }> = ({ 
   return (
     <div className="board">
       <h2 className="board__title h2">Últimas postagens</h2>
-        <TablePosts posts={postContent.posts} />
-        <div className="board__footer tr">
-        <div className="td">
-          Exibindo {postContent.posts.length} postagens
+      <div className="table">
+        <div className="table__content">
+          <TablePosts posts={postContent.posts} />
         </div>
-        <div className="td">
-          <PaginationControl pagination={postContent.pagination} setPage={setPage} />
+        <div className="board__footer tr">
+          <div className="td">
+            Exibindo {postContent.posts.length} postagens
+          </div>
+          <div className="td">
+            <PaginationControl pagination={postContent.pagination} setPage={setPage} />
+          </div>
         </div>
       </div>
     </div>

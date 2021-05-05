@@ -1,18 +1,8 @@
 @import '../utilities';
 
-.table {
-  overflow-x: auto;
-
-  table {
-    border-radius: $border-radius;
-    overflow: hidden;
-    width: 100%;
-  }
-}
-
 .tr,
 tr {
-  border: 1px solid $color-light;
+  border-top: 1px solid $color-light;
 }
 
 .th,
@@ -29,4 +19,26 @@ th {
   font-size: 15px;
   font-weight: bold;
   text-align: left;
+}
+
+
+.table {
+  border: 1px solid $color-light;
+  border-collapse: initial;
+  border-radius: $border-radius;
+
+  &__content {
+    overflow-x: auto;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  tr
+  .tr {
+    &:first-child {
+      border-top: 0;
+    }
+  }
 }

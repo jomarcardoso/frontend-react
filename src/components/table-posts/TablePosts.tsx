@@ -13,15 +13,13 @@ const TablePosts: FC<{ posts: Array<Post> }> = ({ posts }) => {
   }
 
   return (
-    <div className="table">
-      <table className="table-posts">
-        <tr>
-          <th className="table-posts__title">Título</th>
-          <th className="table-posts__body">Conteúdo</th>
-        </tr>
-        {posts.map(renderItem)}
-      </table>
-    </div>
+    <table className="table-posts">
+      <tr>
+        <th className="table-posts__title">Título</th>
+        <th className="table-posts__body">Conteúdo</th>
+      </tr>
+      {posts.map(renderItem)}
+    </table>
   )
 };
 
