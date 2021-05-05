@@ -1,0 +1,35 @@
+@import '../../scss/utilities.scss';
+
+$margin: 3px;
+
+.pagination {
+  display: flex;
+  font-weight: bold;
+
+  &__list {
+    display: flex;
+  }
+
+  &__item {
+    border: 2px solid transparent;
+    font-size: 15px;
+    margin: 0 $margin;
+    padding: 2px;
+    min-height: 23px;
+    min-width: 23px;
+    text-align: center;
+
+    &--selected {
+      border-color: $color-gray-light;
+      border-radius: $border-radius;
+    }
+  }
+
+  .icon:first-child {
+    margin-right: $margin;
+  }
+
+  .icon:last-child {
+    margin-left: $margin;
+  }
+}

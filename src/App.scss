@@ -10,7 +10,9 @@
 
   &__content {
     background-color: #fff;
+    border-radius: $border-radius;
     margin: 0 auto;
     max-width: 1860px;
+    padding: 20px;
   }
 }

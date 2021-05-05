@@ -1,2 +1,18 @@
 @import './scss/utilities.scss';
 @import './scss/resets.scss';
+
+.h2 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.h3 {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.icon {
+  &--reverse {
+    transform: scaleX(-1);
+  }
+}
