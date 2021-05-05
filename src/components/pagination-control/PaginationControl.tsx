@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import './PaginationControl.scss';
 import { Pagination, Page } from '../../services/pagination/pagination.types';
 import { generatePages } from '../../services/pagination/pagination';
@@ -6,6 +6,12 @@ import { generatePages } from '../../services/pagination/pagination';
 
 const PaginationControl: FC<{ pagination: Pagination, setPage(page: number): void }> = ({ pagination, setPage }) => {
   const pages = generatePages(pagination);
+  const [disabled, setDisabled] = useState(false);
+
+  function selectPage(page = 0) {
+    setDisabled(true);
+    setPage(page);
+  }
 
   function renderItem(page: Page) {
     let itemClassName = 'pagination__button';
@@ -17,19 +23,24 @@ const PaginationControl: FC<{ pagination: Pagination, setPage(page: number): voi
     return (
       <button
         className={itemClassName}
-        type="button" onClick={() => {setPage(page.number)}}
+        type="button" onClick={() => {selectPage(page.number)}}
+        disabled={disabled}
       >
         {page.number}
       </button>
     );
   }
 
+  useEffect(() => {
+    setDisabled(false);
+  }, [pagination]);
+
   return (
     <div className="pagination">
       <button
         className="pagination__button"
-        type="button" onClick={() => {setPage(pagination.page - 1)}}
-        disabled={pagination.page === 1}
+        type="button" onClick={() => {selectPage(pagination.page - 1)}}
+        disabled={disabled || pagination.page === 1}
       >
         <img src="/imgs/arrow.svg" alt="próxima página" className="icon icon--reverse" />
       </button>
@@ -37,8 +48,8 @@ const PaginationControl: FC<{ pagination: Pagination, setPage(page: number): voi
       <button
         className="pagination__button"
         type="button"
-        onClick={() => {setPage(pagination.page + 1)}}
-        disabled={pagination.page === pagination.pages}
+        onClick={() => {selectPage(pagination.page + 1)}}
+        disabled={disabled || pagination.page === pagination.pages}
       >
         <img src="/imgs/arrow.svg" alt="próxima página" className="icon"/>
       </button>

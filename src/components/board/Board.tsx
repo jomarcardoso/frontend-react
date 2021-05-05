@@ -9,7 +9,7 @@ const Board: FC<{ postContent: PostContent, setPage(page: number): void }> = ({ 
     <div className="board">
       <h2 className="board__title h2">Últimas postagens</h2>
       <div className="table">
-        <div className="table__content">
+        <div className="table__body">
           <TablePosts posts={postContent.posts} />
         </div>
         <div className="board__footer tr">
