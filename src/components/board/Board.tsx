@@ -1,14 +1,14 @@
 import React, { FC } from 'react';
 import './Board.scss';
 import { PostContent } from '../../services/post/post.types';
-import Table from '../table/Table';
+import TablePosts from '../table-posts/TablePosts';
 import PaginationControl from '../pagination-control/PaginationControl';
 
 const Board: FC<{ postContent: PostContent, setPage(page: number): void }> = ({ postContent, setPage }) => {
   return (
     <div className="board">
       <h2 className="board__title h2">Últimas postagens</h2>
-        <Table posts={postContent.posts} />
+        <TablePosts posts={postContent.posts} />
         <div className="board__footer tr">
         <div className="td">
           Exibindo {postContent.pagination.limit} postagens
