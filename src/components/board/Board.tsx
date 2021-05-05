@@ -2,12 +2,21 @@ import React, { FC } from 'react';
 import './Board.scss';
 import { PostContent } from '../../services/post/types';
 import Table from '../table/Table';
+import PaginationControl from '../pagination-control/PaginationControl';
 
-const Board: FC<{ postContent: PostContent }> = ({ postContent }) => {
+const Board: FC<{ postContent: PostContent, setPage(page: number): void }> = ({ postContent, setPage }) => {
   return (
     <div className="board">
       <h2 className="board__title h2">Últimas postagens</h2>
-      <Table postContent={postContent} />
+        <Table posts={postContent.posts} />
+        <div className="board__footer tr">
+        <div className="td">
+          Exibindo {postContent.pagination.limit} postagens
+        </div>
+        <div className="td">
+          <PaginationControl pagination={postContent.pagination} setPage={setPage} />
+        </div>
+      </div>
     </div>
   );
 };

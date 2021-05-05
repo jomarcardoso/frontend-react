@@ -36,7 +36,7 @@ function generatePages(pagination: Pagination): Array<Page> {
   return pages;
 }
 
-const PaginationControl: FC<{ pagination: Pagination }> = ({ pagination }) => {
+const PaginationControl: FC<{ pagination: Pagination, setPage(page: number): void }> = ({ pagination, setPage }) => {
   const pages = generatePages(pagination);
 
   function renderItem(page: Page) {
@@ -48,18 +48,24 @@ const PaginationControl: FC<{ pagination: Pagination }> = ({ pagination }) => {
 
     return (
       <li className={itemClassName}>
-        {page.number}
+        <button type="button" onClick={() => {setPage(page.number)}}>
+          {page.number}
+        </button>
       </li>
     );
   }
 
   return (
     <div className="pagination">
-      <img src="/imgs/arrow.svg" alt="próxima página" className="icon icon--reverse" />
+      <button type="button" onClick={() => {setPage(pagination.page - 1)}} disabled={pagination.page === 1}>
+        <img src="/imgs/arrow.svg" alt="próxima página" className="icon icon--reverse" />
+      </button>
       <ul className="pagination__list">
         {pages.map(renderItem)}
       </ul>
-      <img src="/imgs/arrow.svg" alt="próxima página" className="icon"/>
+      <button type="button" onClick={() => {setPage(pagination.page + 1)}} disabled={pagination.page === pagination.pages}>
+        <img src="/imgs/arrow.svg" alt="próxima página" className="icon"/>
+      </button>
     </div>
   );
 };

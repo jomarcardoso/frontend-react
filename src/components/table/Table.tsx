@@ -1,9 +1,8 @@
 import React, { FC } from 'react';
 import './Table.scss';
 import { PostContent, Post } from '../../services/post/types';
-import PaginationControl from '../pagination-control/PaginationControl';
 
-const Table: FC<{ postContent: PostContent }> = ({ children, postContent }) => {
+const Table: FC<{ posts: Array<Post> }> = ({ posts }) => {
   function renderItem(post: Post) {
     return (
       <tr>
@@ -15,20 +14,12 @@ const Table: FC<{ postContent: PostContent }> = ({ children, postContent }) => {
 
   return (
     <div className="table">
-      <table className="table__content table-post">
+      <table className="table-post">
         <tr>
           <th className="table-post__title">Título</th>
           <th className="table-post__body">Conteúdo</th>
         </tr>
-        {postContent.posts.map(renderItem)}
-        <tr>
-          <td className="table-post__title">
-            Exibindo {postContent.pagination.limit} postagens
-          </td>
-          <td className="table-post__body">
-            <PaginationControl pagination={postContent.pagination} />
-          </td>
-        </tr>
+        {posts.map(renderItem)}
       </table>
     </div>
   )

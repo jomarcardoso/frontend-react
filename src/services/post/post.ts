@@ -26,7 +26,7 @@ function format(data: PostContentData): PostContent {
   };
 }
 
-export async function getPosts(page = '1'): Promise<{ data?: PostContent; error?: string }> {
+export async function getPosts(page = 1): Promise<{ data?: PostContent; error?: string }> {
   try {
     const response =
       await fetch(`https://gorest.co.in/public-api/posts?_format=json&access-token=${TOKEN}&page=${page}`);

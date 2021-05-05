@@ -1,0 +1,31 @@
+@import '../utilities';
+
+.table {
+  overflow-x: auto;
+
+  table {
+    border-radius: $border-radius;
+    overflow: hidden;
+    width: 100%;
+  }
+}
+
+.tr,
+tr {
+  border: 1px solid $color-light;
+}
+
+.th,
+.td,
+th,
+td {
+  padding: 20px;
+}
+
+.th,
+th {
+  background-color: $color-light;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: left;
+}
