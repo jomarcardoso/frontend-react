@@ -9,7 +9,7 @@ const App: FC = () => {
 	const [postContent, setPostContent] = useState<PostContent>(POST_CONTENT);
 
 	async function get() {
-		const { data, error } = await getPosts('0');
+		const { data, error } = await getPosts('70');
 
 		if (error) {
 			setError(error);

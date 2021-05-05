@@ -5,8 +5,8 @@ const TOKEN = process.env.REACT_APP_TOKEN;
 export const POST_CONTENT: PostContent = {
   pagination: {
     limit: 0,
-    page: 0,
-    pages: 0,
+    page: 1,
+    pages: 3,
   },
   posts: [],
 }
@@ -26,12 +26,14 @@ function format(data: PostContentData): PostContent {
   };
 }
 
-export async function getPosts(page = ''): Promise<{ data?: PostContent; error?: string }> {
+export async function getPosts(page = '1'): Promise<{ data?: PostContent; error?: string }> {
   try {
     const response =
       await fetch(`https://gorest.co.in/public-api/posts?_format=json&access-token=${TOKEN}&page=${page}`);
 
     const data = await response.json() as PostContentData;
+
+    console.log(data);
 
     return { data: format(data) };
   } catch (error) {
