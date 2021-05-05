@@ -34,3 +34,13 @@ export function generatePages(pagination: Pagination): Array<Page> {
 
   return pages;
 }
+
+export function getCurrentPageByPath(): number {
+  const stringPath = window.location.pathname.replace('/', '');
+
+  return Number(stringPath);
+}
+
+export function setUrlByPageNumber(pageNumber: number): void {
+  window.history.pushState({}, '', `/${pageNumber}`);
+}

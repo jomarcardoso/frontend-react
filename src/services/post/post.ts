@@ -23,6 +23,8 @@ function format(data: PostContentData): PostContent {
 }
 
 export async function getPosts(page = 1): Promise<{ data?: PostContent; error?: string }> {
+  if (!TOKEN) return { error: 'Token não informado.' };
+
   try {
     const response =
       await fetch(`https://gorest.co.in/public-api/posts?_format=json&access-token=${TOKEN}&page=${page}`);
