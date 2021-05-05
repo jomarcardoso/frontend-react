@@ -32,7 +32,7 @@ export async function getPosts(page = 1): Promise<{ data?: PostContent; error?: 
     const data = await response.json() as PostContentData;
 
     return { data: format(data) };
-  } catch (error) {
-    return { error: 'asdf' };
+  } catch {
+    return { error: 'Ocorreu um erro inesperado.' };
   }
 }

@@ -11,7 +11,7 @@ const Board: FC<{ postContent: PostContent, setPage(page: number): void }> = ({ 
         <TablePosts posts={postContent.posts} />
         <div className="board__footer tr">
         <div className="td">
-          Exibindo {postContent.pagination.limit} postagens
+          Exibindo {postContent.posts.length} postagens
         </div>
         <div className="td">
           <PaginationControl pagination={postContent.pagination} setPage={setPage} />
