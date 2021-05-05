@@ -1,0 +1,16 @@
+@import './scss/utilities.scss';
+
+.app {
+  background-color: $color-light;
+  min-height: 100vh;
+
+  .header {
+    margin-bottom: 30px;
+  }
+
+  &__content {
+    background-color: #fff;
+    margin: 0 auto;
+    max-width: 1860px;
+  }
+}

@@ -1,0 +1,13 @@
+@import '../../scss/utilities.scss';
+
+.header {
+  background-color: $color-dark;
+  display: flex;
+  justify-content: center;
+  min-height: 60px;
+  padding: 20px;
+
+  &__logo {
+    max-width: 90px;
+  }
+}
