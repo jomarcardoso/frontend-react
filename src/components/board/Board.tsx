@@ -8,6 +8,8 @@ const Board: FC<{
   postContent: PostContent;
   setPage: Dispatch<SetStateAction<number>>;
 }> = ({ postContent, setPage }) => {
+  const textTotalPosts = `Exibindo ${postContent.posts.length} ${postContent.posts.length  === 1 ? 'postagem' : 'postagens'}`;
+
   return (
     <div className="board">
       <h2 className="board__title h2">Últimas postagens</h2>
@@ -17,7 +19,7 @@ const Board: FC<{
         </div>
         <div className="board__footer tr">
           <div className="td">
-            Exibindo {postContent.posts.length} postagens
+            {textTotalPosts}
           </div>
           <div className="td">
             <PaginationControl

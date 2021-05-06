@@ -1,9 +1,3 @@
-Para testar a página é preciso criar um arquivo .env na raíz do projeto contendo o token. Dessa forma:
-
-```
-REACT_APP_TOKEN={TOKEN}
-```
-
 # Frontend <img src="https://www.moovin.com.br/assets/images/svg/logo2.svg" width="50">
 
 ### Desafio

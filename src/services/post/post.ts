@@ -1,8 +1,6 @@
 import { Post, PostContent, PostContentData } from './post.types';
 import { PAGINATION } from '../pagination/pagination';
 
-const TOKEN = process.env.REACT_APP_TOKEN;
-
 export const POST_CONTENT: PostContent = {
   pagination: PAGINATION,
   posts: [],
@@ -22,12 +20,12 @@ function format(data: PostContentData): PostContent {
   };
 }
 
-export async function getPosts(page = 1): Promise<{ data?: PostContent; error?: string }> {
-  if (!TOKEN) return { error: 'Token não informado.' };
+export async function getPosts(page = 1, token = ''): Promise<{ data?: PostContent; error?: string }> {
+  if (!token) return { error: 'Token não informado.' };
 
   try {
     const response =
-      await fetch(`https://gorest.co.in/public-api/posts?_format=json&access-token=${TOKEN}&page=${page}`);
+      await fetch(`https://gorest.co.in/public-api/posts?_format=json&access-token=${token}&page=${page}`);
 
     const data = await response.json() as PostContentData;
 
